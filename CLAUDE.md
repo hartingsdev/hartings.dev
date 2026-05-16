@@ -14,9 +14,17 @@ This project runs in a Docker sandbox with the workspace mounted from a Windows 
 
 ## Running the Dev Server
 
+In CI / normal Linux environments:
 ```bash
 npm run dev
 ```
+
+In the Docker sandbox (Windows NTFS mount — no `.bin/` symlinks):
+```bash
+npm run dev-local
+```
+
+Same pattern applies for `build` / `build-local` and `preview` / `preview-local`.
 
 The server starts on port 4321. If port 4321 is taken, Astro will try 4322, 4323, etc.
 

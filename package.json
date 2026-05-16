@@ -3,9 +3,12 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "node node_modules/astro/astro.js dev --host",
-    "build": "node node_modules/astro/astro.js build",
-    "preview": "node node_modules/astro/astro.js preview --host"
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "dev-local": "node scripts/astro.mjs dev --host",
+    "build-local": "node scripts/astro.mjs build",
+    "preview-local": "node scripts/astro.mjs preview --host"
   },
   "dependencies": {
     "astro": "^6.1.10",
