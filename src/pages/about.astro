@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const skills = [
+  { cat: 'Languages',    items: ['Python', 'Java', 'C', 'C++', 'TypeScript', 'Go', 'HTML', 'CSS'] },
+  { cat: 'Frameworks',   items: ['Spring Boot', 'Vue.js', 'React', 'Angular', 'FastAPI', 'Astro'] },
+  { cat: 'Tools',        items: ['Git', 'Docker', 'Linux', 'Redis'] },
+];
+---
+<Layout title="About" description="About Robert Hartings — Full Stack Developer and Master's student at RWTH Aachen.">
+  <Nav />
+
+  <main class="flex-1 max-w-5xl mx-auto px-6 pt-36 pb-24">
+    <header class="mb-16">
+      <p class="font-mono text-accent text-xs tracking-[0.3em] uppercase mb-4">About</p>
+      <h1 class="text-6xl font-extrabold tracking-tight leading-none">Robert Hartings</h1>
+    </header>
+
+    <div class="grid md:grid-cols-[1fr_320px] gap-16">
+      <!-- Bio -->
+      <div class="space-y-6 text-lg leading-relaxed text-muted max-w-prose">
+        <p>
+          I'm a software engineer at <span class="text-paper font-medium">itestra GmbH</span> in Aachen,
+          working on Java Spring Boot backends and modern frontends for enterprise clients.
+          I hold a Master's degree in Computer Science from
+          <span class="text-paper font-medium">RWTH Aachen University</span> and a Bachelor's from
+          Hochschule Niederrhein.
+        </p>
+        <p>
+          My focus is on building well-crafted software — the kind that's reliable, maintainable,
+          and actually solves the problem at hand. I've worked across the full stack with Java, Python,
+          TypeScript, and Go, and I've shipped things with Spring Boot, Vue.js, React, and FastAPI.
+        </p>
+        <p>
+          I used to compete in CTF (Capture the Flag) competitions with the
+          <span class="text-paper font-medium">RWTHCTF</span> team, which gave me a healthy paranoia
+          about how software breaks. These days I channel that into writing things that are
+          harder to break in the first place.
+        </p>
+        <p>
+          When I'm not in front of a screen, I'm usually in Aachen trying to remember what
+          sunlight feels like.
+        </p>
+
+        <div class="pt-4">
+          <a href="/contact" class="inline-flex items-center gap-2 text-sm font-mono text-accent border border-accent px-4 py-2 hover:bg-accent hover:text-ink transition-all">
+            Get in touch →
+          </a>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <aside class="space-y-8">
+        {skills.map(({ cat, items }) => (
+          <div>
+            <p class="font-mono text-xs text-muted tracking-widest uppercase mb-3">{cat}</p>
+            <ul class="flex flex-wrap gap-2">
+              {items.map(item => (
+                <li class="font-mono text-sm bg-line border border-line text-paper px-3 py-1 hover:border-accent hover:text-accent transition-colors cursor-default">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <div class="pt-4 border-t border-line space-y-2">
+          <p class="font-mono text-xs text-muted tracking-widest uppercase mb-3">Education</p>
+          <div class="text-sm">
+            <p class="text-paper font-medium">M.Sc. Computer Science</p>
+            <p class="text-muted">RWTH Aachen University</p>
+            <p class="font-mono text-xs text-muted opacity-60">2020 – 2024</p>
+          </div>
+          <div class="text-sm">
+            <p class="text-paper font-medium">B.Sc. Computer Science</p>
+            <p class="text-muted">Hochschule Niederrhein</p>
+            <p class="font-mono text-xs text-muted opacity-60">2017 – 2020</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

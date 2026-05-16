@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const projects = [
+  {
+    title: 'POS System Migration (itestra)',
+    description: 'Legacy modernisation of a point-of-sale system for a large retail client. Reverse-engineering an existing AS/400 codebase and migrating it to a service-oriented Java architecture — with both systems running in parallel, requiring continuous synchronisation. Working within a larger team as co-dev-lead for the seller-facing dialogs, while taking hands-on ownership of pricing logic, payment data, and targeted bug fixes in the purchase contract area.',
+    tags: ['Java', 'Spring Boot', 'React', 'AS/400', 'Legacy Migration'],
+    href: null,
+    status: 'live',
+  },
+  {
+    title: 'hartings.dev',
+    description: 'Personal portfolio and blog. Built with Astro for static site generation and Tailwind CSS for styling, deployed on Cloudflare Pages. Designed from scratch with a focus on typography, performance, and a clean dark aesthetic.',
+    tags: ['Astro', 'Tailwind', 'Cloudflare'],
+    href: 'https://github.com/hartingsdev/hartings.dev',
+    status: 'live',
+  },
+  {
+    title: 'CTF Lab Platform',
+    description: 'Attack-defense CTF platform for the IT security module at Hochschule Niederrhein (Bachelor\'s thesis). Redesigned and re-implemented an existing system — FastAPI REST backend managing users, game settings, and match monitoring; Vue 3 + TypeScript frontend; Redis and SQL for persistence.',
+    tags: ['Python', 'FastAPI', 'Vue 3', 'TypeScript', 'Redis', 'SQL'],
+    href: null,
+    status: null,
+  },
+  {
+    title: 'Small Business IT Infrastructure',
+    description: 'End-to-end IT responsibility for a small retail business. Migrated the online shop from 1&1 eShop to Shopify — including setup, design, data migration, and data cleaning. Self-hosts a mail server, password manager, and internal tooling. Handles mail archiving, backups, and ongoing server management.',
+    tags: ['Shopify', 'Linux', 'Self-hosting', 'Mail', 'Backups'],
+    href: null,
+    status: 'live',
+  },
+  {
+    title: 'brAInstorm',
+    description: 'AI-supported collaboration board for brainstorming sessions, built with a 7-person team at the itestra Coding Camp 2022. Automatically clusters contributions by semantic similarity using a Gaussian Mixture Model. Backend in Flask + SQLAlchemy with WebSocket-based real-time updates; frontend in Vue.js + Tailwind.',
+    tags: ['Python', 'Flask', 'Vue.js', 'Tailwind', 'WebSockets', 'ML'],
+    href: null,
+    status: null,
+  },
+];
+---
+<Layout title="Projects" description="Projects by Robert Hartings — software I've built and experiments I've run.">
+  <Nav />
+
+  <main class="flex-1 max-w-5xl mx-auto px-6 pt-36 pb-24">
+    <header class="mb-16">
+      <p class="font-mono text-accent text-xs tracking-[0.3em] uppercase mb-4">Projects</p>
+      <h1 class="text-6xl font-extrabold tracking-tight leading-none">Things I've built</h1>
+    </header>
+
+    {projects.length > 0 ? (
+      <ul class="grid sm:grid-cols-2 gap-px border border-line bg-line">
+        {projects.map(({ title, description, tags, href, status }) => (
+          <li class="bg-ink p-8 flex flex-col gap-4 group hover:bg-line transition-colors">
+            <div class="flex items-start justify-between gap-4">
+              <h2 class="text-xl font-bold group-hover:text-accent transition-colors">{title}</h2>
+              {status === 'live' && (
+                <span class="font-mono text-xs text-accent border border-accent px-2 py-0.5 shrink-0">live</span>
+              )}
+            </div>
+            <p class="text-muted text-sm leading-relaxed flex-1">{description}</p>
+            <div class="flex items-center justify-between">
+              <ul class="flex flex-wrap gap-2">
+                {tags.map(tag => (
+                  <li class="font-mono text-xs text-muted border border-line px-2 py-0.5">{tag}</li>
+                ))}
+              </ul>
+              {href && (
+                <a href={href} class="font-mono text-xs text-muted hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                  GitHub →
+                </a>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="border border-line p-16 text-center space-y-3">
+        <p class="font-mono text-accent text-4xl">_</p>
+        <p class="text-muted">Projects coming soon.</p>
+        <p class="text-sm text-muted opacity-60">Check back later — or ask me directly.</p>
+      </div>
+    )}
+  </main>
+
+  <Footer />
+</Layout>

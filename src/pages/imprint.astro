@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Imprint" description="Impressum / Imprint for hartings.dev">
+  <Nav />
+
+  <main class="flex-1 max-w-3xl mx-auto px-6 pt-36 pb-24">
+    <header class="mb-12">
+      <p class="font-mono text-accent text-xs tracking-[0.3em] uppercase mb-4">Legal</p>
+      <h1 class="text-5xl font-extrabold tracking-tight">Impressum</h1>
+    </header>
+
+    <div class="space-y-8 text-muted leading-relaxed">
+      <section class="space-y-2">
+        <h2 class="text-paper font-semibold text-lg">Angaben gemäß § 5 TMG</h2>
+        <p>Robert Hartings<br />Aachen, Deutschland</p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-paper font-semibold text-lg">Kontakt</h2>
+        <p>E-Mail: <a href="mailto:robert@hartings.dev" class="text-accent hover:underline">robert@hartings.dev</a></p>
+      </section>
+
+      <section class="space-y-2">
+        <h2 class="text-paper font-semibold text-lg">Haftungsausschluss</h2>
+        <p class="text-sm">
+          Diese Website enthält keine kommerziellen Angebote. Die Inhalte wurden mit größtmöglicher Sorgfalt erstellt.
+          Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann keine Gewähr übernommen werden.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

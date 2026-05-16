@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Contact" description="Get in touch with Robert Hartings.">
+  <Nav />
+
+  <main class="flex-1 max-w-5xl mx-auto px-6 pt-36 pb-24">
+    <header class="mb-16">
+      <p class="font-mono text-accent text-xs tracking-[0.3em] uppercase mb-4">Contact</p>
+      <h1 class="text-6xl font-extrabold tracking-tight leading-none">Say hello</h1>
+    </header>
+
+    <div class="grid md:grid-cols-2 gap-16">
+      <div class="space-y-6 text-muted text-lg leading-relaxed">
+        <p>I'm always open to interesting conversations — whether it's about a project, a job opportunity, or just something you want to nerd out about.</p>
+        <p>The best way to reach me is via email. I try to respond within a few days.</p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="border border-line p-6 space-y-4 hover:border-accent transition-colors group">
+          <p class="font-mono text-xs text-muted tracking-widest uppercase">Email</p>
+          <a href="mailto:robert@hartings.dev" class="text-xl font-semibold text-paper group-hover:text-accent transition-colors">
+            robert@hartings.dev
+          </a>
+        </div>
+
+        <div class="grid grid-cols-3 gap-px bg-line border border-line">
+          {[
+            { label: 'GitHub',   href: 'https://github.com/hartingsdev' },
+            { label: 'LinkedIn', href: 'https://linkedin.com/in/robert-hartings/' },
+            { label: 'XING',     href: 'https://xing.com/profile/Robert_Hartings' },
+          ].map(({ label, href }) => (
+            <a
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-ink p-4 text-center font-mono text-sm text-muted hover:bg-line hover:text-accent transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

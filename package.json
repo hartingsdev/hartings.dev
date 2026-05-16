@@ -1,0 +1,16 @@
+{
+  "name": "hartings-dev",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "node node_modules/astro/astro.js dev --host",
+    "build": "node node_modules/astro/astro.js build",
+    "preview": "node node_modules/astro/astro.js preview --host"
+  },
+  "dependencies": {
+    "astro": "^6.1.10",
+    "@astrojs/tailwind": "^5.1.4",
+    "@tailwindcss/typography": "^0.5.15",
+    "tailwindcss": "^3.4.0"
+  }
+}

@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout title="Robert Hartings">
+  <Nav />
+
+  <main class="flex-1">
+    <!-- Hero -->
+    <section class="relative min-h-screen flex flex-col justify-end pb-24 px-6 max-w-5xl mx-auto">
+      <div class="space-y-6 animate-fade-in">
+        <p class="font-mono text-accent text-sm tracking-[0.3em] uppercase">Full Stack Developer</p>
+        <h1 class="text-[clamp(3rem,10vw,8rem)] font-extrabold leading-[0.9] tracking-tight">
+          Robert<br/>Hartings
+        </h1>
+        <p class="max-w-lg text-lg text-muted leading-relaxed">
+          Building things on the web. Software Engineer at itestra GmbH.
+          Interested in software that matters and systems that hold up.
+        </p>
+        <div class="flex gap-6 pt-4 text-sm font-mono">
+          <a href="/projects" class="group flex items-center gap-2 text-paper hover:text-accent transition-colors">
+            <span>See my work</span>
+            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+          <a href="/about" class="text-muted hover:text-paper transition-colors">About me</a>
+        </div>
+      </div>
+
+      <!-- Decorative line -->
+      <div class="absolute right-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-line to-transparent hidden lg:block" aria-hidden="true"></div>
+    </section>
+
+    <!-- Skills strip -->
+    <section class="border-y border-line py-6 overflow-hidden">
+      <div class="flex gap-12 animate-scroll whitespace-nowrap text-sm font-mono text-muted select-none">
+        {['Python', 'Java', 'C', 'C++', 'TypeScript', 'Vue.js', 'React', 'Spring Boot', 'FastAPI', 'HTML', 'CSS', 'Git', 'Go', 'Linux', 'Docker', 'Python', 'Java', 'C', 'C++', 'TypeScript', 'Vue.js', 'React', 'Spring Boot', 'FastAPI', 'HTML', 'CSS', 'Git', 'Go', 'Linux', 'Docker'].map(s => (
+          <span class="shrink-0">{s}</span>
+        ))}
+      </div>
+    </section>
+
+    <!-- Recent section teaser -->
+    <section class="max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12">
+      <div class="space-y-4">
+        <p class="font-mono text-xs text-muted tracking-widest uppercase">Projects</p>
+        <h2 class="text-3xl font-bold">Things I've built</h2>
+        <p class="text-muted leading-relaxed">A collection of work — side projects, experiments, and things I'm too stubborn to give up on.</p>
+        <a href="/projects" class="inline-flex items-center gap-2 text-sm font-mono text-accent hover:gap-3 transition-all">View all →</a>
+      </div>
+      <div class="space-y-4">
+        <p class="font-mono text-xs text-muted tracking-widest uppercase">Writing</p>
+        <h2 class="text-3xl font-bold">Occasional thoughts</h2>
+        <p class="text-muted leading-relaxed">Notes on development, tools I use, and the occasional deep dive into something interesting.</p>
+        <a href="/blog" class="inline-flex items-center gap-2 text-sm font-mono text-accent hover:gap-3 transition-all">Read the blog →</a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.8s ease forwards;
+  }
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+</style>

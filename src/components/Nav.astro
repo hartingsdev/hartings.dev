@@ -1,0 +1,31 @@
+---
+const links = [
+  { href: '/about',    label: 'About'    },
+  { href: '/projects', label: 'Projects' },
+  { href: '/blog',     label: 'Blog'     },
+  { href: '/contact',  label: 'Contact'  },
+];
+const current = Astro.url.pathname;
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-ink/90 backdrop-blur-md border-b border-line">
+  <nav class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
+    <a href="/" class="font-mono text-sm font-bold text-accent tracking-widest hover:opacity-70 transition-opacity">
+      RH
+    </a>
+    <ul class="flex gap-8 text-sm font-medium tracking-wide">
+      {links.map(({ href, label }) => (
+        <li>
+          <a
+            href={href}
+            class:list={[
+              'transition-opacity hover:opacity-100',
+              current.startsWith(href) ? 'opacity-100 text-accent' : 'opacity-50'
+            ]}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>
