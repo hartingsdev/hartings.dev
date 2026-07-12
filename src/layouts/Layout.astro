@@ -7,6 +7,7 @@ interface Props {
   type?: string;
 }
 const { title, description = 'Robert Hartings — Full Stack Developer', type = 'website' } = Astro.props;
+const isProd = import.meta.env.PROD;
 const fullTitle = title === 'Robert Hartings' ? title : `${title} — Robert Hartings`;
 const canonicalUrl = Astro.url;
 ---
@@ -34,6 +35,10 @@ const canonicalUrl = Astro.url;
   <meta name="twitter:description" content={description} />
 
   <slot name="head" />
+
+  {isProd && (
+    <script is:inline defer src="https://analytics.dienstleistungs.cloud/script.js" data-website-id="35ebdd47-90d9-40e7-97e5-b5117a35d782"></script>
+  )}
 
   <link rel="preload" href="/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/jetbrains-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin />
