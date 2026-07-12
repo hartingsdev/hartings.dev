@@ -6,7 +6,7 @@ interface Props {
   description?: string;
   type?: string;
 }
-const { title, description = 'Robert Hartings — Full Stack Developer', type = 'website' } = Astro.props;
+const { title, description = 'Robert Hartings — Senior Engineer', type = 'website' } = Astro.props;
 const isProd = import.meta.env.PROD;
 const fullTitle = title === 'Robert Hartings' ? title : `${title} — Robert Hartings`;
 const canonicalUrl = Astro.url;
